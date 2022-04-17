@@ -16,7 +16,7 @@ def create_database():
         conn.commit()
 def find_txt():
     for i in fileList:
-        var1 = fileList.endswith('.txt')
+        var1 = fileList.endswith('.txt,')
         print(fileList)
         
 
