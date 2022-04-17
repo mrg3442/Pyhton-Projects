@@ -5,20 +5,18 @@ fPath = os.path.join("C:\Tech Academy Projects\Python_Projects\Python-Projects\d
 
 conn = sqlite3.connect('db_assignment.db')
 
-#makes a function to check for .txt ending and passes any string that does to updateSQL()
+#Checks fileList for ending in .txt then updates database 
 def check_txt():
     for x in fileList:
         if x.endswith('.txt'):
-            updateSQL(x)
+            conn = sqlite3.connect('db_assignment.db')
+            with conn:
+                cur = conn.cursor()
+                cur.execute("INSERT INTO tbl_files(col_textFiles) VALUES(?)", (fName,))
+                conn.commit()
+            conn.close()
     
-#updates SQL tbl_files with any string that passed check_txt()
-def updateSQL(fName):
-    conn = sqlite3.connect('db_assignment.db')
-    with conn:
-        cur = conn.cursor()
-        cur.execute("INSERT INTO tbl_files(col_textFiles) VALUES(?)", (fName,))
-        conn.commit()
-    conn.close()
+
 
 #Prints data currently in tbl_files
 def check_table():
