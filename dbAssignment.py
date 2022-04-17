@@ -12,7 +12,7 @@ def check_txt():
             conn = sqlite3.connect('db_assignment.db')
             with conn:
                 cur = conn.cursor()
-                cur.execute("INSERT INTO tbl_files(col_textFiles) VALUES(?)", (fName,))
+                cur.execute("INSERT INTO tbl_files(col_textFiles) VALUES(?)", (x,))
                 conn.commit()
             conn.close()
     
