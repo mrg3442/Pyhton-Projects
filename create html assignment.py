@@ -5,7 +5,7 @@ import tkinter as tk
 from tkinter import messagebox
 
 
-bodyText = 'Stay tuned for our amazing summer sale!!'
+
 
 
 
@@ -45,7 +45,7 @@ def load_gui(self):
     #Update and close buttons
     self.upd = tk.Button(self.master, text = 'Update', bg = 'white', command = lambda: update_html(self))
     self.upd.grid(row = 2, column = 0, padx = 20)
-    self.close = tk.Button(self.master, text = 'Open HTML', bg = 'white', command = lambda: openFile)
+    self.close = tk.Button(self.master, text = 'Open HTML', bg = 'white', command = lambda: openFile())
     self.close.grid(row = 2, column = 1, padx = 20)
     #label for current html
     self.lbl2 = tk.Label(self.master, text = "Current Text for HTML File", fg = "yellow", bg = 'black')
@@ -70,7 +70,7 @@ def update_html(self):
     self.list.insert('end', bodyText)
     self.list.config(state = 'disabled')
     print(bodyText)
-    f = open('index.html', 'a')
+    f = open('index.html', 'w')
     htmlText = ("""
             <html>
                 <body>
@@ -115,7 +115,7 @@ def createFile():
 
 #function for opening file in browser
 def openFile():
-    webbrowser.open_new_tab('C:\Tech Academy Projects\Python_Projects\Python-Projects\index.html')
+    webbrowser.open_new_tab('index.html')
 
 #######################################################################################################################################
 
