@@ -16,7 +16,10 @@ class Sqaure(Shape):
         return self.__side * self.__side
     def perimeter(self):
         return 4 * self.__side
+    def volume(self):
+        return 3 * self.__side
 
 square = Sqaure(5)
 print(square.area())
 print(square.perimeter())
+print(square.volume())
