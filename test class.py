@@ -57,6 +57,11 @@ class Manager(Employee):
     def print_emps(self):
         for emp in self.employees:
             print(emp.fullName())
+
+    def apply_raise(self):
+        self.pay = int(self.pay * self.raise_amt)
+        print("\nBecause you are a manager so you get the biggest raise!\n\
+              New salary: ${}".format(self.pay))
     
 
 emp1 = Employee('Rob', 'Mill', 70000)
@@ -66,4 +71,4 @@ mgr_1 = Manager('Sue', 'Smith', 90000, [emp2])
 
 emp1.apply_raise()
 emp2.apply_raise()
-
+mgr_1.apply_raise()

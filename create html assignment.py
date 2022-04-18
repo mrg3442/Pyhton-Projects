@@ -45,7 +45,7 @@ def load_gui(self):
     #Update and close buttons
     self.upd = tk.Button(self.master, text = 'Update', bg = 'white', command = lambda: update_html(self))
     self.upd.grid(row = 2, column = 0, padx = 20)
-    self.close = tk.Button(self.master, text = 'Open HTML', bg = 'white')
+    self.close = tk.Button(self.master, text = 'Open HTML', bg = 'white', command = lambda: openFile)
     self.close.grid(row = 2, column = 1, padx = 20)
     #label for current html
     self.lbl2 = tk.Label(self.master, text = "Current Text for HTML File", fg = "yellow", bg = 'black')
@@ -71,15 +71,18 @@ def update_html(self):
     self.list.config(state = 'disabled')
     print(bodyText)
     f = open('index.html', 'a')
-    f.write("""
+    htmlText = ("""
             <html>
                 <body>
-                    <h1>{} </h1>
+                    <h1>{}</h1>
                 </body>
             </html>
-            """).format(str(bodyText))
+            """).format(bodyText)
+    f.write(htmlText)
     f.close()
-    
+
+
+
     
     
     
