@@ -27,6 +27,14 @@ class Devoloper(Employee):
         super().__init__(first, last, pay)
         self.prog_lang = prog_lang
 
+
+     #function to apply raise to salary and print before and after
+    def apply_raise(self):
+        print("Previous salary is ${}\n".format(self.pay))
+        self.pay = int(self.pay * self.raise_amt)
+        print("\nBecause you are a dev you get a extra raise!\n\
+              New salary: ${}".format(self.pay))
+
 class Manager(Employee):
     raise_amnt = 1.25
     #again adds new attribute employees and passes rest
@@ -56,5 +64,6 @@ emp2 = Devoloper('Matthew', 'Green', 70000, 'Python')
 
 mgr_1 = Manager('Sue', 'Smith', 90000, [emp2])
 
-mgr_1.print_emps()
+emp1.apply_raise()
+emp2.apply_raise()
 
