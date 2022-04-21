@@ -5,6 +5,7 @@ import datetime
 from datetime import date, time, timedelta
 import tkinter as tk
 from tkinter import *
+from tkinter import filedialog
 
 
 
@@ -33,16 +34,20 @@ class WindowMain(Frame):
         self.buttonTransf.grid(row = 2, column = 2, padx = 50)
 
 
-def srcFile(self):
-    src_folder = self.entrFileA.get()
-    dst_folder = self.entrFileB.get()
-    print(src_folder)
-    print(dst_folder)
+
+def browseFiles():
+    filename = filedialog.askopenfilename(initialdir = "/",
+                                          title = "Select a File",
+                                          filetypes = (("Text files",
+                                                        "*.txt*"),
+                                                       ("all files",
+                                                        "*.*")))
+
     
 
-def file_has_changed(fname):
+def file_has_changed(filename):
     #gets file modified time
-    file_m_time = datetime.datetime.fromtimestamp(path.getmtime(fname))
+    file_m_time = datetime.datetime.fromtimestamp(path.getmtime(filename))
 
     td = datetime.datetime.now() - file_m_time
 
